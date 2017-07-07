@@ -1,0 +1,69 @@
+
+A LinkedList futási ideje 50 elemre: 
+add(E) 67161
+add(int, E) 178963
+addAll(Collection<? extends E>) 133533
+addAll(int, Collection<? extends E>) 101138
+size() 6717
+set(int, E) 25679
+subList(int, int)  478419
+equals(Object) 14617
+contains(Object) 30815
+indexOf(Object) 14617
+lastIndexOf(Object) 24099
+remove(int) 16198
+remove(Object) 16593
+removeAll(Collection<?>) 381629
+clear() 15408
+
+A ArrayList futási ideje 50 elemre: 
+add(E) 79803
+add(int, E) 30028
+addAll(Collection<? extends E>) 109037
+addAll(int, Collection<? extends E>) 80987
+size() 395
+set(int, E) 3160
+subList(int, int)  3160
+equals(Object) 1185
+contains(Object) 14222
+indexOf(Object) 11852
+lastIndexOf(Object) 10271
+remove(int) 3160
+remove(Object) 12642
+removeAll(Collection<?>) 88889
+clear() 9876
+
+A ArttributesList futási ideje 50 elemre: 
+add(E) 78222
+add(int, E) 31209
+addAll(Collection<? extends E>) 55308
+addAll(int, Collection<? extends E>) 45827
+size() 395
+set(int, E) 2371
+subList(int, int)  2765
+equals(Object) 790
+contains(Object) 8297
+indexOf(Object) 7111
+lastIndexOf(Object) 4740
+remove(int) 2765
+remove(Object) 7901
+removeAll(Collection<?>) 103112
+clear() 9876
+
+A RoleList futási ideje 50 elemre: 
+add(E) 69136
+add(int, E) 41087
+addAll(Collection<? extends E>) 291953
+addAll(int, Collection<? extends E>) 27656
+size() 790
+set(int, E) 3555
+subList(int, int)  3160
+equals(Object) 1580
+contains(Object) 11457
+indexOf(Object) 7506
+lastIndexOf(Object) 5136
+remove(int) 3556
+remove(Object) 7901
+removeAll(Collection<?>) 70716
+clear() 9481
+
