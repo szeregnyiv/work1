@@ -1,11 +1,11 @@
 package hu.neuron.work.metodusIdok;
 
-import java.io.*;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Stack;
+import java.util.Vector;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -21,25 +21,21 @@ public class metodusIdok {
 	public static void main(String[] args) {
 		BufferedWriter bw = null;
 		FileWriter fw = null;
-		int meret=0 ;
+		int meret=1 ;
+		
 		try {
 			fw = new FileWriter(FILENAME);
 			bw = new BufferedWriter(fw);
-			do {
-				
 			
 			
+			
+			while(meret!=0){
 			Scanner scanner = new Scanner(System.in);
-			boolean vege= false;
 			System.out.print("Írd be a lista méretét: ");
-			try {
-				 meret = scanner.nextInt();
-			} catch (Exception e) {
-				if("Q".equals(meret+"")){
-					scanner.close();
-				}
+			meret = scanner.nextInt();	
+			if(meret==0){
+				break;
 			}
-			
 			String content = "Írd be a lista méretét:" + meret + "";
 			bw.newLine();
 			content = "A LinkedList futási ideje "+meret+" elemre: ";
@@ -93,17 +89,34 @@ public class metodusIdok {
 				
 			}
 			bw.newLine();
-			} while (meret==-1);
+			content = "A Stack futási ideje "+meret+" elemre: ";
+			bw.write(content);
+			bw.newLine();
+			List stackList = new Stack();
+			fvIdok(meret, stackList);
+			stackList=fvIdok(meret, stackList);
+			for (Object object : stackList) {
+				content=(String)object;
+				bw.write(content);
+				bw.newLine();
+				
+			}
+			bw.newLine();
+			
+			
+			};
 			bw.close();fw.close();
-
 			System.out.println("Done");
-
+			
+			
+			
+			
+			
 		} catch (IOException e) {
 
 			e.printStackTrace();
 
 		} finally {
-
 			try {
 
 				if (bw != null)
@@ -119,6 +132,7 @@ public class metodusIdok {
 			}
 
 		}
+		System.out.println("Vége mindennek, bezárva minden!");
 	}
 
 	public static List fvIdok(int meret, List list) {
@@ -142,6 +156,11 @@ public class metodusIdok {
 			ido = 0;
 			fvIdoAdddAll(meret, list);
 			content = "addAll(int, Collection<? extends E>) " + ido;
+			linkedList.add(content);
+			
+			ido = 0;
+			fvIdoGet(meret, list);
+			content = "get(int) " + ido;
 			linkedList.add(content);
 			
 			ido = 0;
@@ -192,6 +211,11 @@ public class metodusIdok {
 			ido = 0;
 			fvIdoRemoveAll(meret, list);
 			content = "removeAll(Collection<?>) " + ido;
+			linkedList.add(content);
+			
+			ido = 0;
+			fvIdoRetainAll(meret, list);
+			content = "retainAll(Collection<?>) " + ido;
 			linkedList.add(content);
 			
 			ido = 0;
@@ -264,9 +288,6 @@ public class metodusIdok {
 	}
 
 	public static void fvIdoSize(int meret, List list) {
-		int alma = 7;
-		List c = new ArrayList();
-
 		long kezesiIdo = System.nanoTime();
 
 		list.size();
@@ -276,87 +297,75 @@ public class metodusIdok {
 
 	}
 	public static void fvIdoSet(int meret, List list) {
-		int alma = 7;
-		List c = new ArrayList();
 
 		long kezesiIdo = System.nanoTime();
 
-		list.set(alma, meret);
+		list.set(meret-7, meret);
 
 		long befejezesiIdo = System.nanoTime();
 		ido += (befejezesiIdo - kezesiIdo);
 
 	}
 	public static void fvIdoSubList(int meret, List list) {
-		int alma = 7;
-		List c = new ArrayList();
 
 		long kezesiIdo = System.nanoTime();
 
-		list.subList(alma, meret);
+		list.subList(meret-7, meret);
+		
 		long befejezesiIdo = System.nanoTime();
 		ido += (befejezesiIdo - kezesiIdo);
 
 	}
 	public static void fvIdoRemove(int meret, List list) {
-		int alma = 7;
-		List c = new ArrayList();
 
 		long kezesiIdo = System.nanoTime();
 
-		list.remove(alma);
+		list.remove(meret);
 
 		long befejezesiIdo = System.nanoTime();
 		ido += (befejezesiIdo - kezesiIdo);
 
 	}
 	public static void fvIdoEquals(int meret, List list) {
-		int alma = 7;
-		List c = new ArrayList();
 
 		long kezesiIdo = System.nanoTime();
 
-		list.equals(alma);
+		list.equals(meret);
+		
 		long befejezesiIdo = System.nanoTime();
 		ido += (befejezesiIdo - kezesiIdo);
 
 	}
 	public static void fvIdoContains(int meret, List list) {
-		int alma = 7;
-		List c = new ArrayList();
 
 		long kezesiIdo = System.nanoTime();
 
-		list.contains(alma);
+		list.contains(meret);
 
 		long befejezesiIdo = System.nanoTime();
 		ido += (befejezesiIdo - kezesiIdo);
 
 	}
 	public static void fvIdoIndexOf(int meret, List list) {
-		int alma = 7;
-		List c = new ArrayList();
-
 		long kezesiIdo = System.nanoTime();
 
-		list.indexOf((Object) alma);
+		list.indexOf((Object)meret);
+		
 		long befejezesiIdo = System.nanoTime();
 		ido += (befejezesiIdo - kezesiIdo);
 
 	}
 	public static void fvIdoLastIndexOf(int meret, List list) {
-		int alma = 7;
-		List c = new ArrayList();
 
 		long kezesiIdo = System.nanoTime();
 
-		list.lastIndexOf((Object) alma);
+		list.lastIndexOf((Object)meret);
+		
 		long befejezesiIdo = System.nanoTime();
 		ido += (befejezesiIdo - kezesiIdo);
 
 	}
 	public static void fvIdoRemoveAll(int meret, List list) {
-		int alma = 7;
 		List c = new ArrayList();
 
 		long kezesiIdo = System.nanoTime();
@@ -368,21 +377,20 @@ public class metodusIdok {
 
 	}
 	public static void fvIdoRemovee(int meret, List list) {
-		int alma = 7;
-		List c = new ArrayList();
 
 		long kezesiIdo = System.nanoTime();
-		list.remove((Object) alma);
+		
+		list.remove((Object) meret);
 
 		long befejezesiIdo = System.nanoTime();
 		ido += (befejezesiIdo - kezesiIdo);
 
 	}
 	public static void fvIdoRemoveAlll(int meret, List list) {
-		int alma = 7;
 		List c = new ArrayList();
 
 		long kezesiIdo = System.nanoTime();
+		
 		list.retainAll(c);
 
 		long befejezesiIdo = System.nanoTime();
@@ -390,7 +398,6 @@ public class metodusIdok {
 
 	}
 	public static void fvIdoRetainAll(int meret, List list) {
-		int alma = 7;
 		List c = new ArrayList();
 
 		long kezesiIdo = System.nanoTime();
@@ -402,12 +409,20 @@ public class metodusIdok {
 
 	}
 	public static void fvIdoClear(int meret, List list) {
-		int alma = 7;
-		List c = new ArrayList();
 
 		long kezesiIdo = System.nanoTime();
 
 		list.clear();
+
+		long befejezesiIdo = System.nanoTime();
+		ido += (befejezesiIdo - kezesiIdo);
+
+	}
+	public static void fvIdoGet(int meret, List list) {
+
+		long kezesiIdo = System.nanoTime();
+
+		list.get(meret);
 
 		long befejezesiIdo = System.nanoTime();
 		ido += (befejezesiIdo - kezesiIdo);
