@@ -9,9 +9,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
+import org.jfree.chart.plot.DatasetRenderingOrder;
 
 import javax.management.AttributeList;
 import javax.management.relation.RoleList;
+
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.ui.RefineryUtilities;
 
 /**
  * Hello world!
@@ -20,126 +24,159 @@ import javax.management.relation.RoleList;
 public class App 
 {
 	static long time = 0;
+	static Object content= new Object();
+	static List linkedList = new LinkedList();
+	static List implementsList;
+	static List methodsList;
+	static List timesList = new LinkedList();;
 	
     public static void main( String[] args )
     {
-    	Scanner scanner = new Scanner(System.in);
-		boolean continueInput = true;
-
+    			Scanner scanner = new Scanner(System.in);
+    			
+    			
+    			List implementsList = new LinkedList();
+    			
+    			
 				System.out.print("Írd be a lista méretét: ");
 				int meret = scanner.nextInt();
 
 				List linkedList = new LinkedList();
 				linkedList = fvIdok(meret, linkedList);
+				implementsList.add("linkedList");
 				
 				List arrayList = new ArrayList();
-				fvIdok(meret, arrayList);
-				linkedList = fvIdok(meret, linkedList);
+				linkedList = fvIdok(meret, arrayList);
+				implementsList.add("arrayList");
 				
 				List attributeList = new AttributeList();
-				fvIdok(meret, attributeList);
-				linkedList = fvIdok(meret, linkedList);
+				linkedList = fvIdok(meret, attributeList);
+				implementsList.add("attributeList");
 				
 				List roleList = new RoleList();
-				fvIdok(meret, roleList);
-				linkedList = fvIdok(meret, linkedList);
+				linkedList = fvIdok(meret, roleList);
+				implementsList.add("roleList");
 				
 				
 				List stackList = new Stack();
-				fvIdok(meret, stackList);
-				stackList = fvIdok(meret, stackList);
-				TxtWriter writer= new TxtWriter();
-				writer.writer(linkedList);
+				linkedList = fvIdok(meret, stackList);
+				implementsList.add("stackList");
+				
+				TxtMaker writer= new TxtMaker();
+				writer.writer(implementsList,methodsList,timesList,"Szia");
+				
+				final ChartMaker demo = new ChartMaker(implementsList,methodsList,timesList,"Szia"); 
+				demo.pack(); 
+				RefineryUtilities.centerFrameOnScreen(demo); 
+				demo.setVisible(true); 
 				
     }
     public static List fvIdok(int meret, List list) {
-		List linkedList = new LinkedList();
-
-		time = 0;
+    	methodsList = new LinkedList();
+    	
 		fvIdoAdd(meret, list);
-		Object content = "add(E) " + time;
+		
+		content = "add(E) " + time;
 		linkedList.add(content);
+		methodsList.add("add(E) " );
+		timesList.add(time);
 
-		time = 0;
 		fvIdoAddd(meret, list);
 		content = "add(int, E) " + time;
 		linkedList.add(content);
+		methodsList.add("add(int, E) ");
+		timesList.add(time);
 
-		time = 0;
 		fvIdoAddAll(meret, list);
 		content = "addAll(Collection<? extends E>) " + time;
 		linkedList.add(content);
+		methodsList.add("addAll(Collection<? extends E>) ");
+		timesList.add(time);
 
-		time = 0;
 		fvIdoAdddAll(meret, list);
 		content = "addAll(int, Collection<? extends E>) " + time;
 		linkedList.add(content);
+		methodsList.add("addAll(int, Collection<? extends E>) ");
+		timesList.add(time);
 
-		time = 0;
 		fvIdoGet(meret, list);
 		content = "get(int) " + time;
 		linkedList.add(content);
+		methodsList.add("get(int) ");
+		timesList.add(time);
 
-		time = 0;
 		fvIdoSize(list);
 		content = "size() " + time;
 		linkedList.add(content);
+		methodsList.add("size() ");
+		timesList.add(time);
 
-		time = 0;
 		fvIdoSet(meret, list);
 		content = "set(int, E) " + time;
 		linkedList.add(content);
+		methodsList.add("set(int, E) ");
+		timesList.add(time);
 
-		time = 0;
 		fvIdoSubList(meret, list);
 		content = "subList(int, int)  " + time;
 		linkedList.add(content);
+		methodsList.add("subList(int, int)  ");
+		timesList.add(time);
 
-		time = 0;
 		fvIdoEquals(meret, list);
 		content = "equals(Object) " + time;
 		linkedList.add(content);
+		methodsList.add("equals(Object) ");
+		timesList.add(time);
 
-		time = 0;
 		fvIdoContains(meret, list);
 		content = "contains(Object) " + time;
 		linkedList.add(content);
+		methodsList.add("contains(Object) ");
+		timesList.add(time);
 
-		time = 0;
 		fvIdoIndexOf(meret, list);
 		content = "indexOf(Object) " + time;
 		linkedList.add(content);
+		methodsList.add("indexOf(Object) ");
+		timesList.add(time);
 
-		time = 0;
 		fvIdoLastIndexOf(meret, list);
 		content = "lastIndexOf(Object) " + time;
 		linkedList.add(content);
+		methodsList.add("lastIndexOf(Object) ");
+		timesList.add(time);
 
-		time = 0;
 		fvIdoRemove(meret, list);
 		content = "remove(int) " + time;
 		linkedList.add(content);
+		methodsList.add("remove(int) " );
+		timesList.add(time);
 
-		time = 0;
 		fvIdoRemovee(meret, list);
 		content = "remove(Object) " + time;
 		linkedList.add(content);
+		methodsList.add("remove(Object) ");
+		timesList.add(time);
 
-		time = 0;
 		fvIdoRemoveAll(meret, list);
 		content = "removeAll(Collection<?>) " + time;
 		linkedList.add(content);
+		methodsList.add("removeAll(Collection<?>) ");
+		timesList.add(time);
 
-		time = 0;
 		fvIdoRetainAll(meret, list);
 		content = "retainAll(Collection<?>) " + time;
 		linkedList.add(content);
+		methodsList.add("retainAll(Collection<?>) ");
+		timesList.add(time);
 
-		time = 0;
 		fvIdoClear(meret, list);
 		content = "clear() " + time;
 		linkedList.add(content);
-
+		methodsList.add("clear() ");
+		timesList.add(time);
+		
 		return linkedList;
 
 	}
@@ -154,7 +191,7 @@ public class App
 			list.add(i, c);
 
 			long befejezesiIdo = System.nanoTime();
-			time += (befejezesiIdo - kezesiIdo);
+			time = (befejezesiIdo - kezesiIdo);
 		}
 
 	}
@@ -169,7 +206,7 @@ public class App
 			list.add(i);
 
 			long befejezesiIdo = System.nanoTime();
-			time += (befejezesiIdo - kezesiIdo);
+			time = (befejezesiIdo - kezesiIdo);
 		}
 
 	}
@@ -184,7 +221,7 @@ public class App
 			list.addAll(c);
 
 			long befejezesiIdo = System.nanoTime();
-			time += (befejezesiIdo - kezesiIdo);
+			time = (befejezesiIdo - kezesiIdo);
 		}
 
 	}
@@ -199,7 +236,7 @@ public class App
 			list.addAll(i, c);
 
 			long befejezesiIdo = System.nanoTime();
-			time += (befejezesiIdo - kezesiIdo);
+			time = (befejezesiIdo - kezesiIdo);
 		}
 
 	}
@@ -210,7 +247,7 @@ public class App
 		list.size();
 
 		long befejezesiIdo = System.nanoTime();
-		time += (befejezesiIdo - kezesiIdo);
+		time = (befejezesiIdo - kezesiIdo);
 
 	}
 
@@ -221,7 +258,7 @@ public class App
 		list.set(meret - 7, meret);
 
 		long befejezesiIdo = System.nanoTime();
-		time += (befejezesiIdo - kezesiIdo);
+		time = (befejezesiIdo - kezesiIdo);
 
 	}
 
@@ -232,7 +269,7 @@ public class App
 		list.subList(meret - 7, meret);
 
 		long befejezesiIdo = System.nanoTime();
-		time += (befejezesiIdo - kezesiIdo);
+		time = (befejezesiIdo - kezesiIdo);
 
 	}
 
@@ -243,7 +280,7 @@ public class App
 		list.equals(meret);
 
 		long befejezesiIdo = System.nanoTime();
-		time += (befejezesiIdo - kezesiIdo);
+		time = (befejezesiIdo - kezesiIdo);
 
 	}
 
@@ -254,7 +291,7 @@ public class App
 		list.contains(meret);
 
 		long befejezesiIdo = System.nanoTime();
-		time += (befejezesiIdo - kezesiIdo);
+		time = (befejezesiIdo - kezesiIdo);
 
 	}
 
@@ -264,7 +301,7 @@ public class App
 		list.indexOf(meret);
 
 		long befejezesiIdo = System.nanoTime();
-		time += (befejezesiIdo - kezesiIdo);
+		time = (befejezesiIdo - kezesiIdo);
 
 	}
 
@@ -275,7 +312,7 @@ public class App
 		list.lastIndexOf(meret);
 
 		long befejezesiIdo = System.nanoTime();
-		time += (befejezesiIdo - kezesiIdo);
+		time = (befejezesiIdo - kezesiIdo);
 
 	}
 
@@ -286,7 +323,7 @@ public class App
 		list.remove(meret);
 
 		long befejezesiIdo = System.nanoTime();
-		time += (befejezesiIdo - kezesiIdo);
+		time = (befejezesiIdo - kezesiIdo);
 
 	}
 
@@ -297,7 +334,7 @@ public class App
 		list.remove((Object) meret);
 
 		long befejezesiIdo = System.nanoTime();
-		time += (befejezesiIdo - kezesiIdo);
+		time = (befejezesiIdo - kezesiIdo);
 
 	}
 
@@ -310,7 +347,7 @@ public class App
 		list.removeAll(c);
 
 		long befejezesiIdo = System.nanoTime();
-		time += (befejezesiIdo - kezesiIdo);
+		time = (befejezesiIdo - kezesiIdo);
 
 	}
 
@@ -322,7 +359,7 @@ public class App
 		list.retainAll(c);
 
 		long befejezesiIdo = System.nanoTime();
-		time += (befejezesiIdo - kezesiIdo);
+		time = (befejezesiIdo - kezesiIdo);
 
 	}
 
@@ -334,7 +371,7 @@ public class App
 		list.retainAll(c);
 
 		long befejezesiIdo = System.nanoTime();
-		time += (befejezesiIdo - kezesiIdo);
+		time = (befejezesiIdo - kezesiIdo);
 
 	}
 
@@ -345,7 +382,7 @@ public class App
 		list.clear();
 
 		long befejezesiIdo = System.nanoTime();
-		time += (befejezesiIdo - kezesiIdo);
+		time = (befejezesiIdo - kezesiIdo);
 
 	}
 
@@ -356,7 +393,7 @@ public class App
 		list.get(meret);
 
 		long befejezesiIdo = System.nanoTime();
-		time += (befejezesiIdo - kezesiIdo);
+		time = (befejezesiIdo - kezesiIdo);
 
 	}
 }
