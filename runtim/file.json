@@ -1,0 +1,39 @@
+{
+	"implementsList": [
+		"java.util.LinkedList",
+		"java.util.ArrayList",
+		"java.util.Vector",
+		"javax.management.relation.RoleList",
+		"java.util.Stack"
+	],
+	"methodsList": [
+		"add",
+		"equals",
+		"size",
+		"indexOf",
+		"contains",
+		"lastIndexOf",
+		"remove",
+		"clear"
+		
+		
+	],
+	"parametersList": [
+		"Object",
+		"Object",
+		"null",
+		"Object",
+		"Object",
+		"Object",
+		"Object",
+		"null"
+		
+		
+	],
+	"visualizationList": [
+		"txt",
+		"chart"
+		
+	],
+	"size":1000000
+}

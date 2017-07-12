@@ -1,0 +1,11 @@
+
+java.util.LinkedList       
+add  105673729            equals  204138033            size  69901718            indexOf  55992806            contains  52544683            lastIndexOf  73903362            remove  60803432            clear  46744459            
+java.util.ArrayList       
+add  63280231            equals  167630861            size  46270397            indexOf  44701974            contains  48975790            lastIndexOf  68289553            remove  66261849            clear  47676382            
+java.util.Vector       
+add  164850863            equals  193399979            size  137908793            indexOf  141130022            contains  138995234            lastIndexOf  140408727            remove  145495971            clear  140593132            
+javax.management.relation.RoleList       
+add  57397310            equals  140148337            size  39842697            indexOf  40027661            contains  51368344            lastIndexOf  62911895            remove  61929468            clear  44114144            
+java.util.Stack       
+add  82265152            equals  150375371            size  57905404            indexOf  55238993            contains  42647667            lastIndexOf  43539632            remove  44229512            clear  39451198            
