@@ -1,0 +1,35 @@
+{
+	"implementsList": [
+		"java.util.LinkedList",
+		"java.util.ArrayList",
+		"javax.management.AttributeList",
+		"javax.management.relation.RoleList",
+		"java.util.Stack"
+	],
+	"methodsList": [
+		"add",
+		"get",
+		"size",
+		"set",
+		"containsAll",
+		"subList",
+		"addAll"
+		
+	],
+	"parametersList": [
+		"Object",
+		"int",
+		"null",
+		"intObject",
+		"Collection",
+		"intint",
+		"intCollection"
+		
+	],
+	"visualizationList": [
+		"txt",
+		"chart"
+		
+	],
+	"size":500
+}

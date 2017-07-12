@@ -1,0 +1,11 @@
+Szia
+java.util.LinkedList       
+add  6170461            get  5679401            size  1371653            set  7024980            containsAll  22330048            subList  4592588            addAll  4670414            
+java.util.ArrayList       
+add  1174122            get  4357131            size  956444            set  4404143            containsAll  17364523            subList  4379649            addAll  5133821            
+javax.management.AttributeList       
+add  1627257            get  2738169            size  197531            set  4631699            containsAll  19241064            subList  2572639            addAll  7859744            
+javax.management.relation.RoleList       
+add  1772245            get  2572244            size  219654            set  4323946            containsAll  16640376            subList  2402368            addAll  6760684            
+java.util.Stack       
+add  1274072            get  4192785            size  1583406            set  5530067            containsAll  21238099            subList  8226756            addAll  7363547            
